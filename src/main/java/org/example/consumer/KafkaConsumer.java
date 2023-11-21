@@ -7,8 +7,13 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumer {
 
     @KafkaListener(topics = "first_topic", groupId = "first_group")
-    public void consume(String message) {
-        System.out.println("Consumed message: " + message);
+    public void firstConsume(String message) {
+        System.out.println("First consumed message: " + message);
+    }
+
+    @KafkaListener(topics = "first_topic", groupId = "second_group")
+    public void secondConsume(String message) {
+        System.out.println("Second consumed message: " + message);
     }
 }
 
